@@ -1,69 +1,105 @@
-# Welcome to your Lovable project
 
-## Project info
+# Elegant Authentication API
 
-**URL**: https://lovable.dev/projects/1d86d001-4caa-4847-9b46-8a2e4993a118
+A beautifully designed REST API with user registration and authentication, delivering JWT tokens with a clean, minimalist approach.
 
-## How can I edit this code?
+## Project Overview
 
-There are several ways of editing your application.
+This project provides a simple yet powerful authentication system with a modern user interface. The API is designed for simplicity and functionality, offering everything you need for user authentication.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1d86d001-4caa-4847-9b46-8a2e4993a118) and start prompting.
+- **User Registration**: Securely register new users with name, email, and password
+- **JWT Authentication**: Generate secure JWT tokens upon successful authentication
+- **MySQL Storage**: Reliable database integration for storing user details securely
+- **Modern UI**: Clean, responsive interface for interacting with the API
+- **Comprehensive Documentation**: Detailed API documentation with examples
 
-Changes made via Lovable will be committed automatically to this repo.
+## API Endpoints
 
-**Use your preferred IDE**
+### User Registration
+```
+POST /register
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Request Body:
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "secure_password"
+}
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Response:
+{
+  "success": true,
+  "message": "User registered successfully",
+  "user": {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
+}
+```
 
-Follow these steps:
+### User Login
+```
+POST /login
+
+Request Body:
+{
+  "email": "john@example.com",
+  "password": "secure_password"
+}
+
+Response:
+{
+  "success": true,
+  "message": "Login successful",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
+}
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd <PROJECT_DIRECTORY>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project can be easily deployed on platforms like Render:
 
-**Use GitHub Codespaces**
+1. Connect your GitHub repository
+2. Configure the build settings:
+   - Build Command: `npm run build`
+   - Publish Directory: `dist`
+3. Deploy as a static site
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Technologies Used
 
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
 - TypeScript
 - React
-- shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1d86d001-4caa-4847-9b46-8a2e4993a118) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- React Router
+- Tanstack Query
+- Shadcn UI
